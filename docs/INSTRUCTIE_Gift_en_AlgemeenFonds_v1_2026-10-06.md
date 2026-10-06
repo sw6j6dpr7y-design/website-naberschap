@@ -5,6 +5,16 @@ Status: concept, niet vastgesteld door een bestuur. Naberschap is in oprichting 
 
 Bronnen: Notitie AlgemeenFonds Naberschap v1 (29-09-2026), Fonds op Naam uitleg A4 v2 (29-09-2026), Projectinstructie Website v1.1, Huisstijl Naberschap (concept 6-10-2026), Stelselnotitie (hoogste versie in het Project).
 
+## 0. Aansluiting op de huidige giftpagina (commit "Doneren: drie routes")
+
+De knop heet nu "Doneren" en opent een pagina "Doneren aan Stichting Naberschap" met drie routes: Directe gift, Fonds op Naam en Nalatenschap. Houd die opzet. Route 1 is de gift aan de stichting zelf en is de plek voor het AlgemeenFonds. Pas dit aan:
+
+1. **Route 1, Directe gift.** Vervang de tekst door: "Je geeft rechtstreeks aan Stichting Naberschap. Zonder bestemming komt je gift in het AlgemeenFonds. Het bestuur beslist zelfstandig waar het naartoe gaat. Je mag een voorkeur voor een aandachtsgebied doorgeven. Dat is een advies. Je gift gaat niet naar Mondéall BV." Voeg onder de kaart de kostenzin uit §8 toe. Het formulier uit §4 (bedrag leeg, keuze algemeen of aandachtsgebied, eenmalig) hoort achter deze route. Tot de oprichting blijft de betaalknop uitgeschakeld.
+2. **Route 2, Fonds op Naam.** De zin "Draag bij aan een bestaand Fonds op Naam" moet weg: dat is niet vastgelegd (zie §6 en open punt 7). Schrijf: "Begin je eigen fonds onder een naam die jij kiest. Een fonds start met een fondsovereenkomst, niet met een betaalscherm."
+3. **Kop van de pagina.** De regel "Stichting Naberschap is een ANBI (in aanvraag)" moet weg. De ANBI-status moet nog worden aangevraagd en er mag geen ANBI-claim op de site staan. Schrijf: "Stichting Naberschap is in oprichting. De ANBI-status is nog niet toegekend."
+4. **Label.** "Doneren" op de knop en de pagina: zie §4 en open punt 5.
+5. **Nalatenschap (route 3).** Een nalatenschap zonder bestemming valt ook in het AlgemeenFonds (Notitie AlgemeenFonds §3). De bestaande tekst is veilig en kan blijven, met de zin "Informatie over nalatenschap volgt na oprichting".
+
 ## 1. Wat je moet bouwen, in één alinea
 
 De knop rechtsboven in de kop leidt naar één giftscherm voor een **gift aan Stichting Naberschap zelf**. Zo'n gift is standaard **ongeoormerkt** en komt in het **AlgemeenFonds** terecht: het deel van het vermogen waarover het bestuur zelfstandig beslist. De gever kan een **voorkeur voor een aandachtsgebied** uitspreken, nooit voor een project, een club of een persoon. Wie wil dat zijn geld blijvend werkt, of onder een eigen naam, begint geen gift maar een **Fonds op Naam**. Die twee routes blijven op de site uit elkaar.
