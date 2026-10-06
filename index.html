@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naberschap website</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Concept: rustige informatiesite. Wit vlak, kobalt draagt, vermiljoen markeert (één bolletje per scherm). Alle kleuren uit de Naberschap-huisstijl (concept 6-10-2026), geen grijstinten. */
+:root{
+  --kobalt:#0047ab; --vermiljoen:#e34234;
+  --surface:#ffffff; --surface-raised:#f4f8fe;
+  --ink:#00205c; --ink-muted:#3b5898;
+  --line:#c7d8f3; --line-strong:#6a8cc8;
+  --brand:#0047ab; --on-brand:#ffffff;
+  --brand-tint:#e2ecfb; --brand-deep:#00296b;
+  --accent:#e34234; --on-accent:#000f2e;
+  --accent-text:#b3281a; --accent-tint:#fdeae7;
+  --focus:#0047ab;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:64px;--s9:96px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --surface:#001640; --surface-raised:#0b2459; --ink:#edf3ff; --ink-muted:#a8c1f0;
+  --line:#1f4287; --line-strong:#5f86cb; --brand:#7ca3ec; --on-brand:#001640;
+  --brand-tint:#14316f; --brand-deep:#2c58a6; --accent-text:#ff8a7c; --accent-tint:#3a1624; --focus:#9dbbf2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --surface:#001640; --surface-raised:#0b2459; --ink:#edf3ff; --ink-muted:#a8c1f0;
+  --line:#1f4287; --line-strong:#5f86cb; --brand:#7ca3ec; --on-brand:#001640;
+  --brand-tint:#14316f; --brand-deep:#2c58a6; --accent-text:#ff8a7c; --accent-tint:#3a1624; --focus:#9dbbf2; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0}
+body{background:var(--surface);color:var(--ink);font-family:var(--font);font-size:16px;line-height:26px;padding-inline:var(--s4);-webkit-text-size-adjust:100%}
+.wrap{max-width:1040px;margin-inline:auto}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:500}
+h1{font-size:clamp(32px,6vw,48px);line-height:1.1}
+h2{font-size:clamp(24px,4vw,28px);line-height:1.3}
+h3{font-size:20px;line-height:28px;font-weight:600}
+p{margin:0;max-width:65ch}
+a{color:var(--brand);text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+.label{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted)}
+.small{font-size:14px;line-height:22px}
+.muted{color:var(--ink-muted)}
+
+/* concept-balk */
+.concept{background:var(--accent-tint);color:var(--ink);font-size:14px;line-height:22px;margin-inline:calc(var(--s4)*-1);padding:var(--s2) var(--s4);text-align:center}
+.concept b{color:var(--accent-text);font-weight:600}
+
+/* kop */
+header.site{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s5);padding-block:var(--s5)}
+header.site .mark{order:1}
+header.site .giftbtn{order:2;margin-left:auto}
+header.site nav.main{order:3;width:100%}
+@media (min-width:900px){header.site nav.main{order:2;width:auto;margin-left:var(--s5)}header.site .giftbtn{order:3}}
+.btn.gift{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.btn.gift:hover{background:var(--on-accent);border-color:var(--on-accent);color:#fff}
+.btn.big{min-height:52px;padding-inline:var(--s6);font-size:17px}
+.actions{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.tag{display:inline-flex;align-items:center;gap:var(--s2);width:fit-content;background:var(--accent-tint);color:var(--accent-text);border-radius:999px;padding:2px var(--s3);font-size:12px;line-height:20px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s4)}
+a.fon{text-decoration:none;color:var(--ink)}
+a.fon:hover{background:var(--brand-tint);border-color:var(--line-strong)}
+a.fon h3{color:var(--brand)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:var(--s4);margin:0}
+.facts div{display:grid;gap:2px;border-top:1px solid var(--line);padding-top:var(--s3)}
+.facts dt{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted)}
+.facts dd{margin:0;font-weight:500}
+.giftpanel{background:var(--brand-tint);border-radius:20px;padding:var(--s6);display:grid;gap:var(--s4);justify-items:start}
+.form{display:grid;gap:var(--s4);max-width:520px}
+.form label{font-weight:600;font-size:15px}
+.form input,.form select{font:inherit;font-size:16px;min-height:48px;padding:0 var(--s4);border:2px solid var(--line-strong);border-radius:6px;background:var(--surface-raised);color:var(--ink);width:100%}
+.form input:focus-visible,.form select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.form .hint{font-size:14px;line-height:22px;color:var(--ink-muted)}
+.field{display:grid;gap:var(--s2)}
+.back{font-size:15px}
+.mark{font-family:var(--font);font-weight:400;font-size:32px;line-height:1;color:var(--brand);text-decoration:none;letter-spacing:-.01em;display:inline-flex;align-items:baseline;min-height:44px;align-items:center}
+.mark .a{position:relative;display:inline-block}
+.mark .ring{position:absolute;left:50%;top:-.02em;width:.22em;height:.22em;transform:translateX(-50%);border:.055em solid var(--accent);border-radius:50%}
+nav.main{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s2)}
+nav.main a{display:inline-flex;align-items:center;min-height:44px;padding-inline:var(--s4);border-radius:999px;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px}
+nav.main a:hover{background:var(--brand-tint)}
+nav.main a[aria-current="page"]{background:var(--brand);color:var(--on-brand)}
+
+/* status */
+.status{display:flex;align-items:center;gap:var(--s3);background:var(--brand-tint);border-radius:999px;padding:var(--s2) var(--s4);width:fit-content;max-width:100%;font-size:14px;line-height:22px;color:var(--ink)}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;border:3px solid var(--accent)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--surface-raised);border-radius:20px;padding:var(--s7) clamp(var(--s5),5vw,var(--s8));display:grid;gap:var(--s5)}
+.hero .ringdeco{position:absolute;right:-90px;top:-90px;width:360px;height:360px;border-radius:50%;border:90px solid var(--brand-tint);pointer-events:none}
+.hero>*{position:relative}
+.hero .sub{font-size:18px;line-height:30px;color:var(--ink-muted)}
+.promises{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:var(--s3)}
+.promises li{display:flex;gap:var(--s3);align-items:flex-start}
+.promises .dot{margin-top:7px}
+
+section.block{padding-top:var(--s8);display:grid;gap:var(--s5)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--s4)}
+.card{background:var(--surface-raised);border:1px solid var(--line);border-radius:12px;padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+.card p{font-size:15px;line-height:24px}
+.card .go{margin-top:auto;padding-top:var(--s2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding-inline:var(--s5);border-radius:999px;font-weight:500;font-size:15px;text-decoration:none;border:2px solid var(--brand);background:var(--brand);color:var(--on-brand);font-family:var(--font);cursor:pointer}
+.btn.sec{background:transparent;color:var(--brand)}
+.btn[aria-disabled="true"]{background:transparent;color:var(--ink-muted);border-color:var(--line-strong);cursor:default}
+.btn:not([aria-disabled="true"]):hover{background:var(--brand-deep);border-color:var(--brand-deep);color:#fff}
+.btn.sec:hover{background:var(--brand-tint);color:var(--brand);border-color:var(--brand)}
+
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s5) var(--s6)}
+.values div{display:grid;gap:var(--s1);border-top:1px solid var(--line);padding-top:var(--s3)}
+.values b{font-weight:600}
+
+.band{background:var(--brand-deep);color:#fff;border-radius:20px;padding:var(--s6) clamp(var(--s5),5vw,var(--s7));display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--s5)}
+.band h2,.band p{color:#fff}
+.band .panel{background:var(--surface);color:var(--ink);border-radius:12px;padding:var(--s5);display:grid;gap:var(--s3);align-content:start}
+.band .panel p,.band .panel h3{color:var(--ink)}
+:root[data-theme="dark"] .band{background:#0b2459}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .band{background:#0b2459}}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px;line-height:24px}
+th,td{text-align:left;vertical-align:top;padding:var(--s3) var(--s4);border-bottom:1px solid var(--line)}
+th{font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;background:var(--brand-tint);color:var(--ink)}
+tr:last-child td{border-bottom:0}
+.quote{background:var(--accent-tint);border-radius:12px;padding:var(--s5);display:flex;gap:var(--s4);align-items:flex-start}
+.quote .dot{margin-top:8px}
+.quote p{font-weight:500;font-size:18px;line-height:28px}
+ul.plain{margin:0;padding:0;list-style:none;display:grid;gap:var(--s3)}
+ul.plain li{display:flex;gap:var(--s3)}
+ul.plain .dot{margin-top:7px;width:10px;height:10px;border-width:2.5px}
+.page{display:none}
+.page.on{display:block}
+.pagehead{display:grid;gap:var(--s4);padding-top:var(--s5)}
+.pagehead p.lead{font-size:18px;line-height:30px;color:var(--ink-muted)}
+.stack{display:grid;gap:var(--s5)}
+footer.site{margin-top:var(--s9);border-top:1px solid var(--line);padding-block:var(--s6) var(--s8);display:grid;gap:var(--s3)}
+footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
+.themebtn{font:inherit;font-size:14px;background:none;border:0;color:var(--brand);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;padding:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--brand);color:var(--on-brand);padding:var(--s3) var(--s4);z-index:9}
+.skip:focus{left:var(--s4)}
+@media (prefers-reduced-motion:no-preference){.btn,nav.main a{transition:background-color .15s}}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+<div class="concept"><b>Concept 0.1 van 6 oktober 2026.</b> Niet vastgesteld door een bestuur, niet voor publicatie. Teksten zijn voorstel.</div>
+
+<div class="wrap">
+<header class="site">
+  <a class="mark" href="#home" data-go="home" aria-label="Naberschap, naar de voorpagina">n<span class="a">a<span class="ring" aria-hidden="true"></span></span>berschap</a>
+  <a class="btn gift giftbtn" href="#gift" data-go="gift">Doe een gift</a>
+  <nav class="main" aria-label="Hoofdmenu">
+    <a href="#home" data-go="home">Voorpagina</a>
+    <a href="#over" data-go="over">Over Naberschap</a>
+    <a href="#fonds-op-naam" data-go="fonds-op-naam">Fonds op Naam</a>
+    <a href="#contact" data-go="contact">Contact</a>
+  </nav>
+</header>
+
+<main id="inhoud" tabindex="-1">
+
+<!-- VOORPAGINA -->
+<article class="page" id="p-home" aria-labelledby="h-home">
+  <div class="hero">
+    <div class="ringdeco" aria-hidden="true"></div>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Stichting Naberschap is in oprichting. De ANBI-status is nog niet toegekend.</p>
+    <h1 id="h-home">Wat je geeft, blijft in goede handen.</h1>
+    <p class="sub">Naberschap zorgt dat je gift betekenisvol blijft en jaren later nog iets doet voor het dorp of het onderwerp dat jou na aan het hart ligt.</p>
+    <ul class="promises" aria-label="Zo richten we Naberschap in">
+      <li><span class="dot" aria-hidden="true"></span><span>Een onafhankelijk bestuur beslist waar het geld naartoe gaat, niet degene die Naberschap heeft bedacht.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span>Jouw gift staat los van elke onderneming. Geen bedrijf komt eraan.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span>Elk jaar lees je waar het geld heen is gegaan.</span></li>
+    </ul>
+    <div class="actions">
+      <a class="btn big" href="#fonds-op-naam" data-go="fonds-op-naam">Begin je eigen Fonds op Naam</a>
+      <a class="btn sec big" href="#voorbeelden" data-go="voorbeelden">Bekijk voorbeelden</a>
+    </div>
+    <p class="small muted">Dit zijn de uitgangspunten waarmee we de stichting inrichten. Ze worden vastgelegd zodra het bestuur er is.</p>
+  </div>
+
+  <section class="block" id="voorbeelden" aria-labelledby="h-vb">
+    <div class="stack">
+      <p class="label">Zo kan een Fonds op Naam eruitzien</p>
+      <h2 id="h-vb">Vier voorbeelden, om een gevoel te krijgen.</h2>
+      <p>Elk fonds heeft een naam, één aandachtsgebied en een vorm. Open een voorbeeld om te zien wat er gebeurt. Alle fondsen, namen en plaatsen op deze pagina zijn verzonnen.</p>
+    </div>
+    <div class="grid2" id="fonlist"></div>
+    <p class="small muted">Fictieve voorbeelden, met verzonnen namen en dorpen. Er bestaan nog geen fondsen, want Naberschap is in oprichting.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-ingang">
+    <div class="stack">
+      <p class="label">Twijfel je nog?</p>
+      <h2 id="h-ingang">Lees eerst hoe het werkt, of praat met het bestuur.</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Hoe werkt een Fonds op Naam?</h3>
+        <p>Wat je wel en niet bepaalt, welke vormen er zijn en wat je van ons mag verwachten.</p>
+        <div class="go"><a class="btn sec" href="#fonds-op-naam" data-go="fonds-op-naam">Lees hoe het werkt</a></div>
+      </div>
+      <div class="card">
+        <h3>Een vraag aan het bestuur</h3>
+        <p>Wil je eerst praten? Dat kan. Er is geen druk en afhaken mag altijd.</p>
+        <div class="go"><a class="btn sec" href="#contact" data-go="contact">Neem contact op</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-waarden">
+    <div class="stack">
+      <p class="label">Waar Naberschap op staat</p>
+      <h2 id="h-waarden">Nabij, waardig en neutraal.</h2>
+    </div>
+    <div class="values">
+      <div><b>Nabijheid</b><span class="muted">Naar waar mensen zijn, niet waar systemen zijn.</span></div>
+      <div><b>Waardigheid</b><span class="muted">Steun die de eigen kracht intact laat.</span></div>
+      <div><b>Neutraliteit</b><span class="muted">Objectieve maatstaven, geen stellingname.</span></div>
+    </div>
+    <p><a href="#over" data-go="over">Lees meer over Naberschap</a></p>
+  </section>
+
+  <section class="block" aria-labelledby="h-weg">
+    <div class="band">
+      <div class="stack" style="align-content:start">
+        <p class="label" style="color:#fff">Wegwijzer</p>
+        <h2 id="h-weg">Twee aparte organisaties, twee soorten geven.</h2>
+        <p>Naberschap is voor de lange termijn. Wil je nu iets delen met een club of Initiatief, dan is er het Mondéall-platform. Het is een andere organisatie. Je kiest zelf waar je begint.</p>
+      </div>
+      <div class="grid3" style="grid-template-columns:1fr">
+        <div class="panel">
+          <h3>Voor later</h3>
+          <p>Een gift of fonds voor de lange termijn, bij Stichting Naberschap.</p>
+          <p><a href="#fonds-op-naam" data-go="fonds-op-naam">Je bent hier goed</a></p>
+        </div>
+        <div class="panel">
+          <h3>Nu iets delen</h3>
+          <p>Steun een concreet Initiatief van een vereniging of school, via het Mondéall-platform.</p>
+          <p><a href="https://mondeall.nl">Ga naar mondeall.nl</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- OVER -->
+<article class="page" id="p-over" aria-labelledby="h-over">
+  <div class="pagehead">
+    <p class="label">Over Naberschap</p>
+    <h1 id="h-over">Een stichting die dichtbij blijft.</h1>
+    <p class="lead">Naberschap komt van naoberschap: de oude gewoonte dat buren elkaar bijstaan, zonder loket en zonder formulier. Dat is wat wij willen bewaren.</p>
+  </div>
+
+  <section class="block" aria-labelledby="h-bestuur">
+    <h2 id="h-bestuur">Het bestuur beslist zelfstandig</h2>
+    <div class="stack">
+      <p>Alleen het bestuur beslist waar het geld naartoe gaat. Geen enkele partij bepaalt mee: niet de oprichter, niet een gever en niet een onderneming.</p>
+      <p>Het bestuur wordt samengesteld uit minimaal drie onafhankelijke leden. De namen staan hier zodra het bestuur er is. Tot die tijd noemen we niemand.</p>
+      <p>Een gever mag een wens doorgeven. Dat is een advies. Het bestuur hoeft het niet te volgen.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-waarden2">
+    <h2 id="h-waarden2">Waarden die ons houvast geven</h2>
+    <div class="values">
+      <div><b>Vertrouwen</b><span class="muted">Beginnen vanuit vertrouwen, niet vanuit controle.</span></div>
+      <div><b>Nabijheid</b><span class="muted">Naar waar mensen zijn, niet waar systemen zijn.</span></div>
+      <div><b>Waardigheid</b><span class="muted">Steun die de eigen kracht intact laat.</span></div>
+      <div><b>Onafhankelijkheid</b><span class="muted">Het bestuur beslist zelfstandig, altijd.</span></div>
+      <div><b>Neutraliteit</b><span class="muted">Objectieve maatstaven, geen politieke of levensbeschouwelijke kant.</span></div>
+    </div>
+    <p class="small muted">Een greep uit de kernwaarden. De volledige set wordt door het bestuur vastgesteld.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-mondeall">
+    <h2 id="h-mondeall">Onze relatie met Mondéall</h2>
+    <div class="stack">
+      <p>Naberschap is onderdeel van een verband van zelfstandige organisaties rond Mondéall. Wat ze verbindt is een gedeelde missie en zijn afspraken op papier, geen zeggenschap.</p>
+      <p>Mondéall BV (nog op te richten) is bedoeld om de techniek van deze website te beheren, als dienst aan Naberschap op schriftelijke, zakelijke voorwaarden. De BV heeft geen zeggenschap over wat het bestuur besteedt. Een gift gaat rechtstreeks naar Stichting Naberschap.</p>
+      <p>Naberschap vult bestaande fondsen, ANBI's en overheidsregelingen aan. Het vervangt ze niet.</p>
+    </div>
+    <p class="small muted">Deze opzet moet nog door een belastingadviseur en notaris worden getoetst.</p>
+  </section>
+</article>
+
+<!-- FONDS OP NAAM -->
+<article class="page" id="p-fonds" aria-labelledby="h-fonds">
+  <div class="pagehead">
+    <p class="label">Fonds op Naam</p>
+    <h1 id="h-fonds">Een eigen fonds, onder een naam die jij kiest.</h1>
+    <p class="lead">Met een Fonds op Naam draag je jaar na jaar bij aan een onderwerp dat je na aan het hart ligt. Je brengt geld in bij Stichting Naberschap en het bestuur zet het in voor het algemeen nut.</p>
+    <div class="actions">
+      <a class="btn big" href="#contact" data-go="contact">Begin je eigen Fonds op Naam</a>
+      <a class="btn sec big" href="#voorbeelden" data-go="voorbeelden">Bekijk voorbeelden</a>
+    </div>
+    <p class="status"><span class="dot" aria-hidden="true"></span>In voorbereiding. De vormen en voorwaarden zijn nog niet vastgesteld.</p>
+  </div>
+
+  <section class="block" aria-labelledby="h-zo">
+    <h2 id="h-zo">Zo werkt het</h2>
+    <ul class="plain">
+      <li><span class="dot" aria-hidden="true"></span><span><b>Je brengt geld in.</b> Vanaf dat moment is het van Stichting Naberschap. Alleen zo blijft het fonds onafhankelijk.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span><b>Het fonds krijgt een naam en één onderwerp.</b> Dat heet een aandachtsgebied, bijvoorbeeld natuur en milieu of cultureel erfgoed. We kijken samen welk gebied bij je wens past.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span><b>Je kiest een vorm.</b> Zie hieronder.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span><b>Het bestuur kiest de bestemmingen.</b> Elk jaar bekijkt het welke projecten binnen jouw aandachtsgebied een bijdrage krijgen. Jij mag adviseren.</span></li>
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="h-vormen">
+    <h2 id="h-vormen">Welke vormen zijn er?</h2>
+    <div class="grid3">
+      <div class="card"><h3>Blijvend</h3><p>Het vermogen blijft staan en alleen de opbrengst wordt besteed, ook als jij er niet meer bij bent.</p></div>
+      <div class="card"><h3>Met looptijd</h3><p>Het hele bedrag wordt in een aantal jaren besteed, volgens een vast schema. Daarna is het fonds op.</p></div>
+      <div class="card"><h3>In opbouw</h3><p>Je groeit toe naar een blijvend fonds. Er wordt nog niets besteed. Lukt het niet binnen de afgesproken tijd, dan wordt het een fonds met looptijd, tenzij we vooraf iets anders afspreken.</p></div>
+    </div>
+    <p class="small muted">Bedragen en kosten staan hier pas als het bestuur ze heeft vastgesteld. Een fonds start met een fondsovereenkomst, niet met een betaalscherm.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-wel">
+    <h2 id="h-wel">Wat je wel en niet bepaalt</h2>
+    <div class="tablewrap" tabindex="0" role="region" aria-label="Wat je wel en niet bepaalt, tabel">
+      <table>
+        <thead><tr><th scope="col">Dat kun je</th><th scope="col">Dat kun je niet</th></tr></thead>
+        <tbody>
+          <tr><td>De naam van het fonds kiezen</td><td>Eén vaste club, organisatie of persoon als ontvanger aanwijzen</td></tr>
+          <tr><td>Het aandachtsgebied kiezen, uit de gebieden die in aanmerking komen</td><td>Zelf beslissen welk project het geld krijgt</td></tr>
+          <tr><td>Elk jaar advies geven</td><td>Een besteding tegenhouden of afdwingen</td></tr>
+          <tr><td>Elk jaar horen wat het fonds heeft gedaan</td><td>Een garantie krijgen dat jouw voorkeur wordt gevolgd</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Dit voelt misschien streng. Het bestuur moet zelfstandig beslissen. Anders is het fonds een doorgeefluik, en dat mag een goed doel niet zijn. Je advies weegt mee, het laatste woord is van het bestuur.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-org">
+    <h2 id="h-org">Als je een organisatie bent</h2>
+    <div class="quote"><span class="dot" aria-hidden="true"></span><p>Uit een fonds dat jij start, kan je eigen organisatie niet ontvangen.</p></div>
+    <p>Dat zou neerkomen op je eigen geld in een rondje verplaatsen. Hetzelfde geldt als leden, bestuurders of vrienden van je organisatie een fonds starten met jouw organisatie als bedoelde ontvanger.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-verwacht">
+    <h2 id="h-verwacht">Wat je van ons mag verwachten</h2>
+    <p>We kunnen niet beloven dat jouw voorkeur altijd wordt gevolgd. Dat mogen we niet, en het zou het fonds zijn onafhankelijkheid kosten. Dit geven we je wel:</p>
+    <ul class="plain">
+      <li><span class="dot" aria-hidden="true"></span><span>Een vast kader, vooraf bekend, waarlangs elk project wordt beoordeeld.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span>Elk jaar een overzicht van wat het fonds heeft bijgedragen.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span>Een vast moment waarop je advies geeft.</span></li>
+      <li><span class="dot" aria-hidden="true"></span><span>Bij een blijvend fonds de zekerheid dat het vermogen niet wordt aangetast.</span></li>
+    </ul>
+    <p class="small muted">Wil je weten wat dit fiscaal voor jou betekent? Vraag het je belastingadviseur of notaris. Naberschap geeft geen fiscaal advies.</p>
+    <div class="actions"><a class="btn big" href="#contact" data-go="contact">Begin je eigen Fonds op Naam</a></div>
+  </section>
+</article>
+
+<!-- VOORBEELD (gevuld door script) -->
+<article class="page" id="p-fon" aria-labelledby="h-fon">
+  <div class="pagehead">
+    <p class="back"><a href="#voorbeelden" data-go="voorbeelden">Terug naar de voorbeelden</a></p>
+    <span class="tag">Voorbeeld, fictief fonds</span>
+    <h1 id="h-fon"></h1>
+    <p class="lead" id="fon-lead"></p>
+  </div>
+  <section class="block" aria-labelledby="h-feit">
+    <h2 id="h-feit">Kerngegevens</h2>
+    <dl class="facts" id="fon-facts"></dl>
+  </section>
+  <section class="block" aria-labelledby="h-jaar">
+    <h2 id="h-jaar">Zo kan een jaar eruitzien</h2>
+    <ul class="plain" id="fon-jaar"></ul>
+    <p class="small muted">Verzonnen voorbeeld. Het bestuur kiest elk jaar zelf de bestemmingen, binnen het aandachtsgebied.</p>
+  </section>
+  <section class="block" aria-labelledby="h-wens">
+    <h2 id="h-wens">De wens van de gever</h2>
+    <div class="quote"><span class="dot" aria-hidden="true"></span><p id="fon-wens"></p></div>
+    <p>Dit is een advies. Het bestuur weegt het mee en beslist zelf. Elk jaar komt er een overzicht van wat het fonds heeft bijgedragen.</p>
+  </section>
+  <section class="block" aria-labelledby="h-bijdrage">
+    <div class="giftpanel">
+      <h2 id="h-bijdrage">Draag bij aan dit fonds</h2>
+      <p id="fon-gifttext"></p>
+      <a class="btn gift big" href="#gift" data-go="gift" id="fon-gift">Doe een gift</a>
+      <p class="small muted">Je gift gaat naar Stichting Naberschap (in oprichting), niet naar Mondéall BV. Of en hoe derden aan een Fonds op Naam kunnen bijdragen, moet nog worden vastgelegd in het Fondsreglement en getoetst bij de notaris.</p>
+    </div>
+    <div class="actions">
+      <a class="btn big" href="#contact" data-go="contact">Begin je eigen Fonds op Naam</a>
+      <a class="btn sec big" href="#voorbeelden" data-go="voorbeelden">Bekijk andere voorbeelden</a>
+    </div>
+  </section>
+</article>
+
+<!-- GIFT -->
+<article class="page" id="p-gift" aria-labelledby="h-gift">
+  <div class="pagehead">
+    <p class="label">Een gift doen</p>
+    <h1 id="h-gift">Geef aan Stichting Naberschap.</h1>
+    <p class="lead">Je gift gaat rechtstreeks naar Stichting Naberschap en niet naar Mondéall BV. Het bestuur besteedt het voor het algemeen nut.</p>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Concept van het giftscherm. Er kan nog niet worden betaald: Naberschap is in oprichting.</p>
+  </div>
+  <section class="block" aria-labelledby="h-gform">
+    <h2 id="h-gform">Jouw gift</h2>
+    <form class="form" id="giftform" novalidate>
+      <div class="field">
+        <label for="g-bedrag">Bedrag in euro</label>
+        <input id="g-bedrag" name="bedrag" type="text" inputmode="decimal" autocomplete="off" aria-describedby="g-bedrag-h">
+        <span class="hint" id="g-bedrag-h">Vul zelf een bedrag in. Er is geen vooraf gekozen bedrag.</span>
+      </div>
+      <div class="field">
+        <label for="g-doel">Waar wil je dat het heen gaat? (niet verplicht)</label>
+        <select id="g-doel" name="doel" aria-describedby="g-doel-h">
+          <option value="">Geen voorkeur, Naberschap in het algemeen</option>
+          <optgroup label="Voorbeeldfondsen (fictief)">
+            <option value="eikenlaan">Fonds Eikenlaan</option>
+            <option value="oude-veer">Fonds Het Oude Veer</option>
+            <option value="drie-linden">Fonds De Drie Linden</option>
+            <option value="eerst-samen">Fonds Eerst Samen</option>
+          </optgroup>
+          <optgroup label="Aandachtsgebied">
+            <option>Armoedebestrijding</option>
+            <option>Natuur en milieu</option>
+            <option>Cultureel erfgoed</option>
+            <option>Basisonderwijs</option>
+          </optgroup>
+        </select>
+        <span class="hint" id="g-doel-h">Een voorkeur is een advies. Het bestuur beslist.</span>
+      </div>
+      <p class="small">Ontvanger: Stichting Naberschap (in oprichting). Ontvang je een bevestiging, dan vragen we alleen om je e-mailadres, voor dat ene doel.</p>
+      <button class="btn big" type="submit" id="g-submit" aria-disabled="true" style="justify-self:start">Betalen volgt na oprichting</button>
+      <p class="small muted" id="g-msg" role="status"></p>
+    </form>
+    <p class="small muted">Betaalmethoden, periodieke giften en de bevestigingsmail zijn nog open. Over giftenaftrek zeggen we niets zolang de ANBI-status niet is toegekend en een belastingadviseur de tekst heeft getoetst.</p>
+  </section>
+</article>
+
+<!-- CONTACT -->
+<article class="page" id="p-contact" aria-labelledby="h-contact">
+  <div class="pagehead">
+    <p class="label">Contact en klachten</p>
+    <h1 id="h-contact">Praat eerst, beslis later.</h1>
+    <p class="lead">Je hoeft niets te beslissen om een vraag te stellen. We vragen alleen om wat nodig is om je te antwoorden.</p>
+  </div>
+  <section class="block" aria-labelledby="h-gegevens">
+    <h2 id="h-gegevens">Contactgegevens</h2>
+    <div class="card" style="max-width:520px">
+      <p><b>E-mailadres:</b> volgt na oprichting</p>
+      <p><b>Post:</b> volgt na oprichting</p>
+      <p class="small muted">KvK-nummer, RSIN en zetel volgen zodra de stichting is opgericht.</p>
+    </div>
+  </section>
+  <section class="block" aria-labelledby="h-klacht">
+    <h2 id="h-klacht">Een klacht</h2>
+    <p>Ben je ergens niet tevreden over? Dan wil het bestuur dat weten. De klachtenregeling is in voorbereiding en komt hier te staan, met de termijn waarbinnen je antwoord krijgt.</p>
+  </section>
+</article>
+
+</main>
+
+<footer class="site">
+  <div class="mark" style="font-size:24px;pointer-events:none" aria-hidden="true">n<span class="a">a<span class="ring"></span></span>berschap</div>
+  <p class="small">Stichting Naberschap, in oprichting. De ANBI-status is nog niet toegekend.</p>
+  <div class="row small">
+    <a href="#contact" data-go="contact">Contact en klachten</a>
+    <span class="muted">Privacyverklaring: volgt</span>
+    <span class="muted">Toegankelijkheidsverklaring: volgt na onderzoek</span>
+    <button class="themebtn" id="themebtn" type="button">Donker of licht thema</button>
+  </div>
+  <p class="small muted">Techniek: Mondéall BV (nog op te richten) is bedoeld als beheerder van deze website. Zolang die er niet is, wordt de site beheerd door de ontwerper van het concept.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var FUNDS={
+    'eikenlaan':{naam:'Fonds Eikenlaan',plaats:'Eikenbroek',gebied:'Natuur en milieu',vorm:'Blijvend',door:'Familie Van Dalen uit Eikenbroek',
+      lead:'De familie Van Dalen woont al drie generaties in Eikenbroek. Met dit fonds zorgt ze dat het dorp groen blijft. Het vermogen blijft staan en alleen de opbrengst wordt besteed.',
+      wens:'Dat de bomenrij langs de Kerkweg er over vijftig jaar nog staat.',
+      jaar:['Een bijdrage aan het herstel van de bomenrij langs de Kerkweg in Eikenbroek.','Een bijdrage aan een leerpad bij het Eikenbroekse Bos, voor de groepen 7 en 8 van de dorpsschool.'],
+      gift:'Wil je meebouwen aan een groen Eikenbroek? Een gift versterkt het vermogen waaruit elk jaar wordt besteed.'},
+    'oude-veer':{naam:'Fonds Het Oude Veer',plaats:'Veerhoek',gebied:'Cultureel erfgoed',vorm:'Met looptijd, tien jaar',door:'De Vrienden van het Veer uit Veerhoek',
+      lead:'Een groep vrienden uit Veerhoek besteedt tien jaar lang een vast schema aan wat het dorp zijn gezicht geeft. Daarna is het fonds op.',
+      wens:'Dat de molen blijft draaien en dat het dorpsverhaal bewaard wordt.',
+      jaar:['Een bijdrage aan de restauratie van korenmolen De Zwaluw in Veerhoek.','Een bijdrage aan het digitaliseren van het dorpsarchief van Veerhoek.'],
+      gift:'Een gift aan dit fonds komt in het vaste schema terecht en wordt binnen de looptijd besteed.'},
+    'drie-linden':{naam:'Fonds De Drie Linden',plaats:'Lindenkamp',gebied:'Basisonderwijs',vorm:'Blijvend',door:'Familie Hendriksen uit Lindenkamp',
+      lead:'De familie Hendriksen heeft een bedrijf in Lindenkamp en wil kinderen uit de regio een goede start geven. Elk jaar kiest het bestuur projecten rond basisonderwijs.',
+      wens:'Dat elk kind uit de regio goed leert lezen.',
+      jaar:['Een bijdrage aan een leesproject op basisschool De Kiem in Lindenkamp.','Een bijdrage aan de bibliotheek van Lindenkamp voor een voorleesochtend voor gezinnen.'],
+      gift:'Wil je bijdragen aan goed basisonderwijs voor de lange termijn? Een gift versterkt dit blijvende fonds.'},
+    'eerst-samen':{naam:'Fonds Eerst Samen',plaats:'Wolterbroek',gebied:'Armoedebestrijding',vorm:'In opbouw',door:'Inwoners van Wolterbroek',
+      lead:'Inwoners van Wolterbroek leggen elk jaar in, op weg naar een blijvend fonds. Zolang het fonds in opbouw is, wordt er nog niets besteed.',
+      wens:'Dat iedereen in Wolterbroek kan meedoen.',
+      jaar:['Dit jaar is er nog niets besteed. Het fonds groeit toe naar een blijvend fonds.','Lukt dat niet binnen de afgesproken tijd, dan wordt het een fonds met looptijd onder dezelfde naam, tenzij vooraf iets anders is afgesproken.'],
+      gift:'Dit fonds is nog in opbouw. Een gift helpt het sneller tot een blijvend fonds te groeien.'}
+  };
+  var order=['eikenlaan','oude-veer','drie-linden','eerst-samen'];
+  var pages={home:'p-home',over:'p-over','fonds-op-naam':'p-fonds',contact:'p-contact',gift:'p-gift'};
+  var titles={home:'Voorpagina',over:'Over Naberschap','fonds-op-naam':'Fonds op Naam',contact:'Contact en klachten',gift:'Een gift doen'};
+  var current=null;
+
+  // lijst op de voorpagina
+  var list=document.getElementById('fonlist');
+  order.forEach(function(k){
+    var f=FUNDS[k],a=document.createElement('a');
+    a.className='card fon';a.href='#fonds-'+k;a.setAttribute('data-go','fonds-'+k);
+    a.innerHTML='<span class="tag">Voorbeeld, fictief</span><h3></h3><p></p><p class="small muted"></p><span class="go small" style="color:var(--brand);text-decoration:underline;text-underline-offset:3px">Bekijk dit fonds</span>';
+    a.querySelector('h3').textContent=f.naam;
+    a.querySelectorAll('p')[0].textContent=f.gebied+' · '+f.vorm;
+    a.querySelectorAll('p')[1].textContent='Gestart door: '+f.door;
+    list.appendChild(a);
+  });
+
+  function fill(k){
+    var f=FUNDS[k];current=k;
+    document.getElementById('h-fon').textContent=f.naam;
+    document.getElementById('fon-lead').textContent=f.lead;
+    var facts=document.getElementById('fon-facts');facts.innerHTML='';
+    [['Plaats',f.plaats+' (fictief dorp)'],['Aandachtsgebied',f.gebied],['Vorm',f.vorm],['Gestart door',f.door]].forEach(function(r){
+      var d=document.createElement('div'),t=document.createElement('dt'),v=document.createElement('dd');
+      t.textContent=r[0];v.textContent=r[1];d.appendChild(t);d.appendChild(v);facts.appendChild(d);
+    });
+    var ul=document.getElementById('fon-jaar');ul.innerHTML='';
+    f.jaar.forEach(function(t){
+      var li=document.createElement('li');li.innerHTML='<span class="dot" aria-hidden="true"></span><span></span>';
+      li.lastChild.textContent=t;ul.appendChild(li);
+    });
+    document.getElementById('fon-wens').textContent=f.wens;
+    document.getElementById('fon-gifttext').textContent=f.gift;
+  }
+
+  function pageKey(key){
+    if(pages[key])return key;
+    if(key==='voorbeelden')return 'home';
+    if(key.indexOf('fonds-')===0&&FUNDS[key.slice(6)])return 'fon';
+    return 'home';
+  }
+  function show(key,focus){
+    var pk=pageKey(key),id=(pk==='fon')?'p-fon':pages[pk];
+    if(pk==='fon')fill(key.slice(6));
+    Object.keys(pages).concat(['fon']).forEach(function(k){
+      document.getElementById(k==='fon'?'p-fon':pages[k]).classList.toggle('on',k===pk);
+    });
+    var navKey=(pk==='fon')?'home':pk;
+    document.querySelectorAll('nav.main a').forEach(function(a){
+      if(a.getAttribute('data-go')===navKey&&key!=='voorbeelden'&&pk!=='fon')a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    document.title='Naberschap website: '+(pk==='fon'?FUNDS[key.slice(6)].naam:titles[pk]);
+    if(pk==='gift'){
+      var sel=document.getElementById('g-doel');
+      if(key==='gift'&&current&&sel&&this_from_fund){sel.value=current}
+      this_from_fund=false;
+    }
+    if(key==='voorbeelden'){var t=document.getElementById('voorbeelden');if(t)t.scrollIntoView();}
+    else if(focus){window.scrollTo(0,0)}
+    if(focus&&key!=='voorbeelden'){document.getElementById('inhoud').focus({preventScroll:true})}
+  }
+  var this_from_fund=false;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-go]');if(!a)return;
+    e.preventDefault();var k=a.getAttribute('data-go');
+    if(k==='gift'){this_from_fund=(a.id==='fon-gift');if(!this_from_fund){document.getElementById('g-doel').value=''}}
+    try{history.replaceState(null,'','#'+k)}catch(x){}
+    show(k,true);
+  });
+  document.getElementById('giftform').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('g-msg').textContent='Dit is een concept. Er is nog geen betaalroute en er is niets verstuurd of betaald.';
+  });
+  show((location.hash||'').replace('#',''),false);
+  window.addEventListener('hashchange',function(){show((location.hash||'').replace('#',''),false)});
+  document.getElementById('themebtn').addEventListener('click',function(){
+    var r=document.documentElement,dark=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    r.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+
+</body>
+</html>
