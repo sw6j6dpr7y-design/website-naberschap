@@ -9,3 +9,5 @@ Harde regels:
 - Huisstijl: kobalt #0047ab, vermiljoen #e34234, Poppins, geen grijstinten, tokens in plaats van losse hexwaarden, WCAG.
 - De voorbeeldfondsen (Eikenlaan, Het Oude Veer, De Drie Linden, Eerst Samen) zijn fictief en zo gemarkeerd.
 - Geen trackers of pixels. Site blijft op noindex tot het bestuur vrijgeeft.
+
+Gift en AlgemeenFonds: volg `docs/INSTRUCTIE_Gift_en_AlgemeenFonds_v1_2026-10-06.md` bij elke wijziging aan de giftknop, het giftscherm of de voorbeeldfondsen.
