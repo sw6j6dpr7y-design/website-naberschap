@@ -156,7 +156,7 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
 <div class="wrap">
 <header class="site">
   <a class="mark" href="#home" data-go="home" aria-label="Naberschap, naar de voorpagina">n<span class="a">a<span class="ring" aria-hidden="true"></span></span>berschap</a>
-  <a class="btn gift giftbtn" href="#gift" data-go="gift">Doe een gift</a>
+  <a class="btn gift giftbtn" href="#gift" data-go="gift">Doneren</a>
   <nav class="main" aria-label="Hoofdmenu">
     <a href="#home" data-go="home">Voorpagina</a>
     <a href="#over" data-go="over">Over Naberschap</a>
@@ -399,43 +399,37 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
 <!-- GIFT -->
 <article class="page" id="p-gift" aria-labelledby="h-gift">
   <div class="pagehead">
-    <p class="label">Een gift doen</p>
-    <h1 id="h-gift">Geef aan Stichting Naberschap.</h1>
-    <p class="lead">Je gift gaat rechtstreeks naar Stichting Naberschap en niet naar Mondéall BV. Het bestuur besteedt het voor het algemeen nut.</p>
-    <p class="status"><span class="dot" aria-hidden="true"></span>Concept van het giftscherm. Er kan nog niet worden betaald: Naberschap is in oprichting.</p>
+    <p class="label">Doneren aan Stichting Naberschap</p>
+    <h1 id="h-gift">Drie manieren om bij te dragen.</h1>
+    <p class="lead">Stichting Naberschap is een ANBI (in aanvraag). Je kunt direct geven, bijdragen via een Fonds op Naam, of Naberschap een plek geven in je testament.</p>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Naberschap is in oprichting. Betaalroutes zijn nog niet actief.</p>
   </div>
-  <section class="block" aria-labelledby="h-gform">
-    <h2 id="h-gform">Jouw gift</h2>
-    <form class="form" id="giftform" novalidate>
-      <div class="field">
-        <label for="g-bedrag">Bedrag in euro</label>
-        <input id="g-bedrag" name="bedrag" type="text" inputmode="decimal" autocomplete="off" aria-describedby="g-bedrag-h">
-        <span class="hint" id="g-bedrag-h">Vul zelf een bedrag in. Er is geen vooraf gekozen bedrag.</span>
+
+  <section class="block" aria-labelledby="h-direct">
+    <div class="grid3">
+      <div class="card">
+        <p class="label">Route 1</p>
+        <h3 id="h-direct">Directe gift</h3>
+        <p>Je geeft rechtstreeks aan Stichting Naberschap. Het bestuur besteedt het voor het algemeen nut. Jouw gift gaat niet naar Mondéall BV.</p>
+        <p class="small muted">Over giftenaftrek zeggen we niets zolang de ANBI-status niet is toegekend en een belastingadviseur de tekst heeft getoetst.</p>
+        <div class="go"><button class="btn big" aria-disabled="true">Betaalroute volgt na oprichting</button></div>
       </div>
-      <div class="field">
-        <label for="g-doel">Waar wil je dat het heen gaat? (niet verplicht)</label>
-        <select id="g-doel" name="doel" aria-describedby="g-doel-h">
-          <option value="">Geen voorkeur, Naberschap in het algemeen</option>
-          <optgroup label="Voorbeeldfondsen (fictief)">
-            <option value="eikenlaan">Fonds Eikenlaan</option>
-            <option value="oude-veer">Fonds Het Oude Veer</option>
-            <option value="drie-linden">Fonds De Drie Linden</option>
-            <option value="eerst-samen">Fonds Eerst Samen</option>
-          </optgroup>
-          <optgroup label="Aandachtsgebied">
-            <option>Armoedebestrijding</option>
-            <option>Natuur en milieu</option>
-            <option>Cultureel erfgoed</option>
-            <option>Basisonderwijs</option>
-          </optgroup>
-        </select>
-        <span class="hint" id="g-doel-h">Een voorkeur is een advies. Het bestuur beslist.</span>
+      <div class="card">
+        <p class="label">Route 2</p>
+        <h3>Fonds op Naam</h3>
+        <p>Draag bij aan een bestaand Fonds op Naam, of begin je eigen fonds. Je gift blijft verbonden aan het onderwerp dat jou na aan het hart ligt.</p>
+        <p class="small muted">Of en hoe derden aan een bestaand Fonds op Naam kunnen bijdragen, wordt vastgelegd in het Fondsreglement.</p>
+        <div class="go"><a class="btn sec big" href="#fonds-op-naam" data-go="fonds-op-naam">Lees hoe een Fonds op Naam werkt</a></div>
       </div>
-      <p class="small">Ontvanger: Stichting Naberschap (in oprichting). Ontvang je een bevestiging, dan vragen we alleen om je e-mailadres, voor dat ene doel.</p>
-      <button class="btn big" type="submit" id="g-submit" aria-disabled="true" style="justify-self:start">Betalen volgt na oprichting</button>
-      <p class="small muted" id="g-msg" role="status"></p>
-    </form>
-    <p class="small muted">Betaalmethoden, periodieke giften en de bevestigingsmail zijn nog open. Over giftenaftrek zeggen we niets zolang de ANBI-status niet is toegekend en een belastingadviseur de tekst heeft getoetst.</p>
+      <div class="card">
+        <p class="label">Route 3</p>
+        <h3>Nalatenschap</h3>
+        <p>Je kunt Naberschap een plek geven in je testament, als erfgenaam of als legataris. Wat er dan met je gift gebeurt, legt het bestuur vast in de statuten.</p>
+        <p class="small muted">Informatie over nalatenschap volgt na oprichting. Raadpleeg een notaris voor persoonlijk advies.</p>
+        <div class="go"><a class="btn sec big" href="#contact" data-go="contact">Stel een vraag aan het bestuur</a></div>
+      </div>
+    </div>
+    <p class="small muted" id="g-msg" role="status"></p>
   </section>
 </article>
 
@@ -551,26 +545,15 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
       if(a.getAttribute('data-go')===navKey&&key!=='voorbeelden'&&pk!=='fon')a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
     document.title='Naberschap website: '+(pk==='fon'?FUNDS[key.slice(6)].naam:titles[pk]);
-    if(pk==='gift'){
-      var sel=document.getElementById('g-doel');
-      if(key==='gift'&&current&&sel&&this_from_fund){sel.value=current}
-      this_from_fund=false;
-    }
     if(key==='voorbeelden'){var t=document.getElementById('voorbeelden');if(t)t.scrollIntoView();}
     else if(focus){window.scrollTo(0,0)}
     if(focus&&key!=='voorbeelden'){document.getElementById('inhoud').focus({preventScroll:true})}
   }
-  var this_from_fund=false;
   document.addEventListener('click',function(e){
     var a=e.target.closest('[data-go]');if(!a)return;
     e.preventDefault();var k=a.getAttribute('data-go');
-    if(k==='gift'){this_from_fund=(a.id==='fon-gift');if(!this_from_fund){document.getElementById('g-doel').value=''}}
     try{history.replaceState(null,'','#'+k)}catch(x){}
     show(k,true);
-  });
-  document.getElementById('giftform').addEventListener('submit',function(e){
-    e.preventDefault();
-    document.getElementById('g-msg').textContent='Dit is een concept. Er is nog geen betaalroute en er is niets verstuurd of betaald.';
   });
   show((location.hash||'').replace('#',''),false);
   window.addEventListener('hashchange',function(){show((location.hash||'').replace('#',''),false)});
