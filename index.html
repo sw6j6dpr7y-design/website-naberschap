@@ -382,15 +382,21 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
     <div class="quote"><span class="dot" aria-hidden="true"></span><p id="fon-wens"></p></div>
     <p>Dit is een advies. Het bestuur weegt het mee en beslist zelf. Elk jaar komt er een overzicht van wat het fonds heeft bijgedragen.</p>
   </section>
-  <section class="block" aria-labelledby="h-bijdrage">
-    <div class="giftpanel">
-      <h2 id="h-bijdrage">Draag bij aan dit fonds</h2>
-      <p id="fon-gifttext"></p>
-      <a class="btn gift big" href="#gift" data-go="gift" id="fon-gift">Doe een gift</a>
-      <p class="small muted">Je gift gaat naar Stichting Naberschap (in oprichting), niet naar Mondéall BV. Of en hoe derden aan een Fonds op Naam kunnen bijdragen, moet nog worden vastgelegd in het Fondsreglement en getoetst bij de notaris.</p>
+  <section class="block" aria-labelledby="h-eigen">
+    <div class="stack">
+      <h2 id="h-eigen">Wil je zelf zo'n fonds?</h2>
+      <p>Begin je eigen fonds onder een naam die jij kiest. Een fonds start met een fondsovereenkomst, niet met een betaalscherm.</p>
+      <div class="actions">
+        <a class="btn big" href="#fonds-op-naam" data-go="fonds-op-naam">Begin je eigen Fonds op Naam</a>
+      </div>
     </div>
-    <div class="actions">
-      <a class="btn big" href="#contact" data-go="contact">Begin je eigen Fonds op Naam</a>
+    <div class="giftpanel" style="margin-top:var(--s5)">
+      <h2 id="h-bijdrage">Geef aan Stichting Naberschap, <span id="fon-gift-label">met voorkeur voor dit aandachtsgebied</span></h2>
+      <p>Dit is een gift aan Stichting Naberschap met een voorkeur voor het aandachtsgebied. Het is geen bijdrage aan dit voorbeeldfonds.</p>
+      <a class="btn gift big" href="#gift" data-go="gift" id="fon-gift">Geef aan Stichting Naberschap</a>
+      <p class="small muted">Je gift gaat naar Stichting Naberschap (in oprichting), niet naar Mondéall BV.</p>
+    </div>
+    <div class="actions" style="margin-top:var(--s4)">
       <a class="btn sec big" href="#voorbeelden" data-go="voorbeelden">Bekijk andere voorbeelden</a>
     </div>
   </section>
@@ -399,37 +405,71 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
 <!-- GIFT -->
 <article class="page" id="p-gift" aria-labelledby="h-gift">
   <div class="pagehead">
-    <p class="label">Doneren aan Stichting Naberschap</p>
-    <h1 id="h-gift">Drie manieren om bij te dragen.</h1>
-    <p class="lead">Stichting Naberschap is een ANBI (in aanvraag). Je kunt direct geven, bijdragen via een Fonds op Naam, of Naberschap een plek geven in je testament.</p>
-    <p class="status"><span class="dot" aria-hidden="true"></span>Naberschap is in oprichting. Betaalroutes zijn nog niet actief.</p>
+    <p class="label">Gift aan Stichting Naberschap</p>
+    <h1 id="h-gift">Geef aan Stichting Naberschap.</h1>
+    <p class="lead">Je gift gaat rechtstreeks naar Stichting Naberschap en niet naar Mondéall BV. Zonder bestemming komt hij in het AlgemeenFonds. Het bestuur beslist zelfstandig waar het geld naartoe gaat.</p>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Stichting Naberschap is in oprichting. De ANBI-status is nog niet toegekend.</p>
   </div>
 
-  <section class="block" aria-labelledby="h-direct">
-    <div class="grid3">
-      <div class="card">
-        <p class="label">Route 1</p>
-        <h3 id="h-direct">Directe gift</h3>
-        <p>Je geeft rechtstreeks aan Stichting Naberschap. Het bestuur besteedt het voor het algemeen nut. Jouw gift gaat niet naar Mondéall BV.</p>
-        <p class="small muted">Over giftenaftrek zeggen we niets zolang de ANBI-status niet is toegekend en een belastingadviseur de tekst heeft getoetst.</p>
-        <div class="go"><button class="btn big" aria-disabled="true">Betaalroute volgt na oprichting</button></div>
+  <section class="block" aria-labelledby="h-gform">
+    <h2 id="h-gform">Jouw gift</h2>
+    <form class="form" id="giftform" novalidate>
+      <div class="field">
+        <label for="g-bedrag">Bedrag in euro</label>
+        <input id="g-bedrag" name="bedrag" type="text" inputmode="decimal" autocomplete="off" aria-describedby="g-bedrag-h">
+        <span class="hint" id="g-bedrag-h">Vul zelf een bedrag in. We stellen geen bedrag voor.</span>
       </div>
+      <fieldset style="border:0;padding:0;margin:0;display:grid;gap:var(--s2)">
+        <legend style="font-weight:600;font-size:15px;padding:0;margin-bottom:var(--s2)">Waar wil je dat het heen gaat?</legend>
+        <label style="display:flex;gap:var(--s3);align-items:center;min-height:44px;cursor:pointer;font-weight:normal">
+          <input type="radio" name="voorkeur" value="algemeen" id="g-algemeen" checked style="width:18px;height:18px;accent-color:var(--brand);flex:none">
+          Naberschap in het algemeen (AlgemeenFonds)
+        </label>
+        <label style="display:flex;gap:var(--s3);align-items:center;min-height:44px;cursor:pointer;font-weight:normal">
+          <input type="radio" name="voorkeur" value="aandachtsgebied" id="g-aandacht" style="width:18px;height:18px;accent-color:var(--brand);flex:none">
+          Met een voorkeur voor een aandachtsgebied
+        </label>
+        <div id="g-gebied-wrap" hidden style="padding-left:calc(18px + var(--s3));display:grid;gap:var(--s2)">
+          <label for="g-gebied" style="font-weight:600;font-size:15px">Aandachtsgebied</label>
+          <select id="g-gebied" name="gebied" aria-describedby="g-gebied-h">
+            <option value="">Kies een aandachtsgebied</option>
+            <option>Armoedebestrijding</option>
+            <option>Natuur en milieu</option>
+            <option>Cultureel erfgoed</option>
+            <option>Basisonderwijs</option>
+          </select>
+          <span class="hint" id="g-gebied-h">Je mag een voorkeur doorgeven. Dat is een advies. Het bestuur weegt het mee en beslist zelf.</span>
+        </div>
+      </fieldset>
+      <div class="field">
+        <p style="font-weight:600;font-size:15px;margin:0">Eenmalig of periodiek</p>
+        <p class="small muted" style="margin-top:var(--s1)">Eenmalig. Periodiek geven volgt na toekenning van de ANBI-status.</p>
+      </div>
+      <p class="small">Je geeft aan Stichting Naberschap (in oprichting).</p>
+      <button class="btn big" type="submit" aria-disabled="true" style="justify-self:start">Betalen volgt na oprichting</button>
+      <p class="small muted" id="g-msg" role="status"></p>
+    </form>
+    <p class="small muted">Een deel van ongeoormerkte giften kan nodig zijn voor de kosten van Naberschap, zoals de accountant en de administratie. Elk jaar maken we zichtbaar hoe die kosten zich verhouden tot wat er is besteed.</p>
+    <p>Wil je dat je geld blijvend werkt, of onder je eigen naam? Dan is een Fonds op Naam passender.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-andere-routes">
+    <h2 id="h-andere-routes">Twee andere manieren</h2>
+    <div class="grid2">
       <div class="card">
-        <p class="label">Route 2</p>
-        <h3>Fonds op Naam</h3>
-        <p>Draag bij aan een bestaand Fonds op Naam, of begin je eigen fonds. Je gift blijft verbonden aan het onderwerp dat jou na aan het hart ligt.</p>
-        <p class="small muted">Of en hoe derden aan een bestaand Fonds op Naam kunnen bijdragen, wordt vastgelegd in het Fondsreglement.</p>
+        <p class="label">Fonds op Naam</p>
+        <h3>Begin je eigen fonds.</h3>
+        <p>Begin je eigen fonds onder een naam die jij kiest. Een fonds start met een fondsovereenkomst, niet met een betaalscherm.</p>
         <div class="go"><a class="btn sec big" href="#fonds-op-naam" data-go="fonds-op-naam">Lees hoe een Fonds op Naam werkt</a></div>
       </div>
       <div class="card">
-        <p class="label">Route 3</p>
-        <h3>Nalatenschap</h3>
-        <p>Je kunt Naberschap een plek geven in je testament, als erfgenaam of als legataris. Wat er dan met je gift gebeurt, legt het bestuur vast in de statuten.</p>
+        <p class="label">Nalatenschap</p>
+        <h3>Naberschap in je testament.</h3>
+        <p>Je kunt Naberschap een plek geven in je testament, als erfgenaam of als legataris. Een nalatenschap zonder bestemming valt ook in het AlgemeenFonds.</p>
         <p class="small muted">Informatie over nalatenschap volgt na oprichting. Raadpleeg een notaris voor persoonlijk advies.</p>
         <div class="go"><a class="btn sec big" href="#contact" data-go="contact">Stel een vraag aan het bestuur</a></div>
       </div>
     </div>
-    <p class="small muted" id="g-msg" role="status"></p>
   </section>
 </article>
 
@@ -495,8 +535,9 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
   };
   var order=['eikenlaan','oude-veer','drie-linden','eerst-samen'];
   var pages={home:'p-home',over:'p-over','fonds-op-naam':'p-fonds',contact:'p-contact',gift:'p-gift'};
-  var titles={home:'Voorpagina',over:'Over Naberschap','fonds-op-naam':'Fonds op Naam',contact:'Contact en klachten',gift:'Een gift doen'};
+  var titles={home:'Voorpagina',over:'Over Naberschap','fonds-op-naam':'Fonds op Naam',contact:'Contact en klachten',gift:'Gift aan Stichting Naberschap'};
   var current=null;
+  var pendingGebied=null;
 
   // lijst op de voorpagina
   var list=document.getElementById('fonlist');
@@ -525,7 +566,8 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
       li.lastChild.textContent=t;ul.appendChild(li);
     });
     document.getElementById('fon-wens').textContent=f.wens;
-    document.getElementById('fon-gifttext').textContent=f.gift;
+    pendingGebied=f.gebied;
+    document.getElementById('fon-gift-label').textContent='met voorkeur voor '+f.gebied;
   }
 
   function pageKey(key){
@@ -545,6 +587,16 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
       if(a.getAttribute('data-go')===navKey&&key!=='voorbeelden'&&pk!=='fon')a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
     document.title='Naberschap website: '+(pk==='fon'?FUNDS[key.slice(6)].naam:titles[pk]);
+    if(pk==='gift'&&pendingGebied){
+      document.getElementById('g-aandacht').checked=true;
+      document.getElementById('g-gebied-wrap').hidden=false;
+      var sel=document.getElementById('g-gebied');
+      sel.value=pendingGebied;
+      pendingGebied=null;
+    } else if(pk==='gift'){
+      document.getElementById('g-algemeen').checked=true;
+      document.getElementById('g-gebied-wrap').hidden=true;
+    }
     if(key==='voorbeelden'){var t=document.getElementById('voorbeelden');if(t)t.scrollIntoView();}
     else if(focus){window.scrollTo(0,0)}
     if(focus&&key!=='voorbeelden'){document.getElementById('inhoud').focus({preventScroll:true})}
@@ -554,6 +606,16 @@ footer.site .row{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
     e.preventDefault();var k=a.getAttribute('data-go');
     try{history.replaceState(null,'','#'+k)}catch(x){}
     show(k,true);
+  });
+  document.getElementById('g-aandacht').addEventListener('change',function(){
+    document.getElementById('g-gebied-wrap').hidden=false;
+  });
+  document.getElementById('g-algemeen').addEventListener('change',function(){
+    document.getElementById('g-gebied-wrap').hidden=true;
+  });
+  document.getElementById('giftform').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('g-msg').textContent='Dit is een concept. Er is nog geen betaalroute en er is niets verstuurd of betaald.';
   });
   show((location.hash||'').replace('#',''),false);
   window.addEventListener('hashchange',function(){show((location.hash||'').replace('#',''),false)});
